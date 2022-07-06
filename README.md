@@ -1,1 +1,1 @@
-GBSpringBase
+Учебный проект на курсе Основы Spring Boot
