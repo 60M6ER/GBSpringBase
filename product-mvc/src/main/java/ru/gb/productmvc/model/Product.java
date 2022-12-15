@@ -1,15 +1,23 @@
 package ru.gb.productmvc.model;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
-@EqualsAndHashCode
+import javax.persistence.*;
+
+@Entity
+@Data
+@Table(name = "products")
 public class Product {
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private Long id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "coast")
     private double cost;
 
     public Product() {

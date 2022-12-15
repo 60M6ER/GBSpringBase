@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class ProductRepo {
+public class ProductDAO {
     private final List<Product> products;
 
-    public ProductRepo() {
+    public ProductDAO() {
         products = new LinkedList<>();
 
         products.add(new Product(1l, "Product 1", 1.55));
