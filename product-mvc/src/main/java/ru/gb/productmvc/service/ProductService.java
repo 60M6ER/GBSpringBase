@@ -1,4 +1,4 @@
-package ru.gb.productmvc.Service;
+package ru.gb.productmvc.service;
 
 import org.springframework.stereotype.Service;
 import ru.gb.productmvc.model.Product;
@@ -21,7 +21,7 @@ public class ProductService {
 
     public Product getById(Long id) {
         if (id == -1) return new Product();
-        return productDAO.findByID(id);
+        return productDAO.findById(id);
     }
 
     public void delProduct(Long id){
