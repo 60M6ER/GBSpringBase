@@ -47,11 +47,27 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public void delete(Long id) {
-
+        try (Session session = factoryService.getSession()) {
+            session.beginTransaction();
+            int i = session.createQuery("delete from Product p where p.id = :id")
+                    .setParameter("id", id)
+                    .executeUpdate();
+            session.getTransaction().commit();
+            System.out.println("Deleted: " + i);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
     public void save(Product product) {
-
+        try (Session session = factoryService.getSession()) {
+            session.beginTransaction();
+            session.saveOrUpdate(product);
+            session.getTransaction().commit();
+            System.out.println("Saved with id: " + product.getId());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
