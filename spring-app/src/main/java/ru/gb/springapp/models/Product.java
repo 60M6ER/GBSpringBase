@@ -1,19 +1,8 @@
-package ru.gb.productmvc.model;
+package ru.gb.springapp.models;
 
-import lombok.Data;
-
-import javax.persistence.*;
-
-@Entity
-@Table(name = "products")
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-    @Column(name = "title")
     private String title;
-    @Column(name = "price")
     private double cost;
 
     public Product() {
@@ -23,6 +12,11 @@ public class Product {
         this.id = id;
         this.title = title;
         this.cost = cost;
+    }
+
+    public void update(Product product) {
+        this.title = product.getTitle();
+        this.cost = product.getCost();
     }
 
     public Long getId() {

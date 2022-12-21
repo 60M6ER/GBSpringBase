@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import ru.gb.productmvc.Service.ProductService;
+import ru.gb.productmvc.service.ProductService;
 import ru.gb.productmvc.model.Product;
 
 @Controller

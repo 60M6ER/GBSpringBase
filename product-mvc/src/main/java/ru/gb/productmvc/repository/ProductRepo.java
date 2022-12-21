@@ -1,12 +1,11 @@
 package ru.gb.productmvc.repository;
 
-import org.springframework.stereotype.Repository;
 import ru.gb.productmvc.model.Product;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+
 public class ProductRepo {
     private final List<Product> products;
 
