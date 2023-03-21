@@ -9,7 +9,7 @@ import ru.gb.springdata.repository.ProductRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/app/products")
 public class ProductController {
 
     private ProductRepository productRepository;
