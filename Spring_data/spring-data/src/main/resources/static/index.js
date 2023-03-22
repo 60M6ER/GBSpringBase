@@ -66,6 +66,7 @@ angular.module('app', [])
         if (column === $scope.currentSort){
             $scope.ASC = !$scope.ASC;
         } else {
+            $scope.currentPage = 1;
             $scope.currentSort = column;
             $scope.ASC = true;
         }

@@ -61,7 +61,7 @@
             <li class="page-item" id="buttonBefore">
                 <a class="page-link" ng-click="changePage(currentPage - 1)">Предыдущая</a>
             </li>
-            <li ng-repeat="p in PageList" class="page-item" id="button_page_{{p}}" check-Active-Page="p"><a class="page-link" href="#" ng-click="changePage(p)">{{p}}</a></li>
+            <li ng-repeat="p in PageList" class="page-item" id="button_page_{{p}}" check-Active-Page="{{p}}"><a class="page-link" href="#" ng-click="changePage(p)">{{p}}</a></li>
             <li class="page-item" id="buttonAfter">
                 <a class="page-link" href="#" ng-click="changePage(currentPage + 1)">Следующая</a>
             </li>
