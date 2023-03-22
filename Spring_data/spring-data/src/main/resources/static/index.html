@@ -14,13 +14,36 @@
 <div class="container" ng-controller="indexController">
 
     <h3>Список товаров</h3>
-
+    <div class="col-6 col-md-2">
+        <form novalidate ng-submit="loadProducts()">
+            <div class="form-floating int-group-dm">
+                <input type="number" class="form-control" id="filterMinPrice" placeholder="Минимальная цена" ng-model="filter.minPrice">
+                <label for="filterMinPrice">Минимальная цена</label>
+            </div>
+            <p></p>
+            <div class="form-floating int-group-dm">
+                <input type="number" class="form-control" id="filterMaxPrice" placeholder="Максимальная цена" ng-model="filter.maxPrice">
+                <label for="filterMaxPrice">Максимальная цена</label>
+            </div>
+            <p></p>
+            <button class="btn btn-outline-warning btn-sm" style="width: 100%;" type="submit" ng-click="currentPage = 1">Применить</button>
+        </form>
+    </div>
     <table class="table table-hover" cellpadding="0" cellspacing="0">
 
         <tr>
-            <td>ID</td>
-            <td>Название продукта</td>
-            <td>Стоимость</td>
+            <td ng-click="changeSort('id')">ID
+                <span ng-if="currentSort === 'id' && ASC">&#9660;</span>
+                <span ng-if="currentSort === 'id' && !ASC">&#9650;</span>
+            </td>
+            <td ng-click="changeSort('title')">Название продукта
+                <span ng-if="currentSort === 'title' && ASC">&#9660;</span>
+                <span ng-if="currentSort === 'title' && !ASC">&#9650;</span>
+            </td>
+            <td ng-click="changeSort('price')">Стоимость
+                <span ng-if="currentSort === 'price' && ASC">&#9660;</span>
+                <span ng-if="currentSort === 'price' && !ASC">&#9650;</span>
+            </td>
             <td>Действие</td>
         </tr>
         <tbody>
@@ -33,6 +56,17 @@
         </tbody>
 
     </table>
+    <nav aria-label="Пример навигации по страницам">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" id="buttonBefore">
+                <a class="page-link" ng-click="changePage(currentPage - 1)">Предыдущая</a>
+            </li>
+            <li ng-repeat="p in PageList" class="page-item" id="button_page_{{p}}" check-Active-Page="p"><a class="page-link" href="#" ng-click="changePage(p)">{{p}}</a></li>
+            <li class="page-item" id="buttonAfter">
+                <a class="page-link" href="#" ng-click="changePage(currentPage + 1)">Следующая</a>
+            </li>
+        </ul>
+    </nav>
 
 </div>
 
