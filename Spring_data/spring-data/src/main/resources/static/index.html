@@ -29,6 +29,7 @@
             <button class="btn btn-outline-warning btn-sm" style="width: 100%;" type="submit" ng-click="currentPage = 1">Применить</button>
         </form>
     </div>
+    <button class="btn btn-primary btn-sm" style="width: 100%;" ng-click="createProduct()">Создать продукт</button>
     <table class="table table-hover" cellpadding="0" cellspacing="0">
 
         <tr>
@@ -47,7 +48,7 @@
             <td>Действие</td>
         </tr>
         <tbody>
-            <tr ng-repeat="p in ProductList">
+            <tr ng-repeat="p in ProductList" ng-click="clickProduct(p.id)">
                 <td>{{p.id}}</td>
                 <td>{{p.title}}</td>
                 <td>{{p.price}}</td>
@@ -67,6 +68,25 @@
             </li>
         </ul>
     </nav>
+    <div class="container justify-content-left">
+        <form novalidate hidden ng-submit="loadProducts()" id="product_form">
+            <div class="form-floating int-group-dm">
+                <input type="number" class="form-control" id="product_id" placeholder="ID" ng-model="currentProduct.id" disabled readonly>
+                <label for="product_price">ID</label>
+            </div>
+            <div class="form-floating int-group-dm">
+                <input type="text" class="form-control" id="product_title" placeholder="Название товара" ng-model="currentProduct.title">
+                <label for="product_title">Название продукта</label>
+            </div>
+            <p></p>
+            <div class="form-floating int-group-dm">
+                <input type="number" class="form-control" id="product_price" placeholder="Стоимость" ng-model="currentProduct.price">
+                <label for="product_price">Стоимость</label>
+            </div>
+            <p></p>
+            <button class="btn btn-success btn-sm" style="width: 100%;" type="submit" ng-click="saveProduct()">Сохранить</button>
+        </form>
+    </div>
 
 </div>
 
