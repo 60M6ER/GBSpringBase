@@ -17,7 +17,7 @@ public class InitService {
         this.productRepository = productRepository;
     }
 
-    @EventListener(ApplicationReadyEvent.class)
+    //@EventListener(ApplicationReadyEvent.class)
     public void initProducts() {
         productRepository.deleteAll();
         for (int i = 1; i < 21; i++) {
